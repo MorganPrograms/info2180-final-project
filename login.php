@@ -1,22 +1,23 @@
 <?php
 session_start(); //Starting the session
-$ermsg ="";
 
-if (isset($_POST["submit"])){
-	if(empty($_POST['Email']) || empty($_POST['Password'])){
-		$ermsg="Email or password invalid, try again";
-	}
-	else
-	{
-		$email=$_POST['Email'];
-		$password=$_POST['Password'];
+		$email=$_POST['email'];
+		$password=$_POST['password'];
 
-		//msqli_connect(), this function opens a new connection to the MySql server.
-		$conn= mysqli_connect("localhost","root","whatever the database server is");
+		//mysqli_connect(), this function opens a new connection to the MySql server.
+		$con=mysqli_connect("localhost","root","");
+		mysqli_select_db($con,"schema");
+		
 		//query to fetch information of registered users and finds the user.
-		$query= "SELECT username, password from users where  Email=? AND Password=? LIMIT 1";
-		mysql_close($conn); //closing connection
+		$query= mysqli_query($con, "SELECT email,password FROM users WHERE  email='$email' and password='$password'") or die(mysqli_error($con));
+		$finding= mysqli_fetch_array($query);
+		if ($finding['email']==$email && $finding['password']==$password){
+		echo "I work";
+		}else{
+			echo "Failed";
+		}
 
-	}
-}
+
+	
+
 ?>
