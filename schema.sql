@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2019 at 01:50 AM
+-- Generation Time: Dec 02, 2019 at 12:44 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -31,7 +31,7 @@ USE `schema`;
 --
 
 DROP TABLE IF EXISTS `issues`;
-CREATE TABLE IF NOT EXISTS `issues` (
+CREATE TABLE `issues` (
   `id` int(11) NOT NULL,
   `title` int(35) NOT NULL,
   `description` longtext NOT NULL,
@@ -51,14 +51,13 @@ CREATE TABLE IF NOT EXISTS `issues` (
 --
 
 DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
+CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `firstname` char(35) NOT NULL,
   `lastname` char(35) NOT NULL,
   `password` char(35) NOT NULL,
   `email` char(35) NOT NULL,
-  `date_joined` date NOT NULL,
-  PRIMARY KEY (`id`)
+  `date_joined` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -66,7 +65,39 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `password`, `email`, `date_joined`) VALUES
-(0, 'Admin', 'Gai', 'password123', 'admin@bugme.com', '2019-11-24');
+(1, 'Admin', 'Gai', 'password123', 'admin@bugme.com', '2019-11-24');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `issues`
+--
+ALTER TABLE `issues`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `issues`
+--
+ALTER TABLE `issues`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
