@@ -29,23 +29,24 @@
 					<a href="Login.html"><img id = "icon" src = "log.png" alt = "Logout">Logout </img></a>
 				</div>
 			</div>
+			<form action="newuser.php" method="post">
+				<div id = "fields">
+					<h1>New User </h1>
+					<h3>First Name</h3> 
+					<input type = "text" id ="firstname" name ="fname">
 
-			<div id = "fields">
-				<h1>New User </h1>
-				<h3>First Name</h3> 
-				<input type = "text" id ="Firstname">
-
-				<h3>Last Name</h3> 
-				<input type = "text" id ="Lasttname">
-				
-				<h3>Password</h3> 
-				<input type = "password" id ="Password">
-				
-				<h3>Email</h3> 
-				<input type = "email" id ="Email">
-				<br>
-				<button id= "Submit">Submit</button>
-			</div> 
+					<h3>Last Name</h3> 
+					<input type = "text" id ="lasttname" name ="lname">
+					
+					<h3>Password</h3> 
+					<input type = "password" id ="password" name ="password">
+					
+					<h3>Email</h3> 
+					<input type = "email" id ="email" name ="email">
+					<br>
+					<button id= "Submit">Submit</button>
+				</div> 
+			</form>
 		</div>
 	</body>
 </html>
