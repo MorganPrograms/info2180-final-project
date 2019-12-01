@@ -16,8 +16,4 @@ session_start(); //Starting the session
 		}else{
 			echo "Failed";
 		}
-
-
-	
-
 ?>
